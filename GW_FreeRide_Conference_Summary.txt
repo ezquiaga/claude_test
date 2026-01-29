@@ -1,0 +1,241 @@
+===============================================================================
+GW FREERIDE CONFERENCE - PROGRAM SUMMARY
+===============================================================================
+
+Conference: GW FreeRide
+Dates: January 26-30, 2026
+Location: Bad Moos (likely in the Alps, based on "Snow" activities)
+Website: https://sites.google.com/unimib.it/gwfreeride/program
+
+Theme: Intersection of Gravitational Waves (GW) and Machine Learning/AI
+
+
+===============================================================================
+OVERVIEW
+===============================================================================
+
+This 5-day workshop brings together gravitational wave researchers and AI/ML
+experts to explore how machine learning can advance gravitational wave science.
+The conference features invited talks, discussions, flash talks, and 
+collaborative working sessions.
+
+Daily Schedule Pattern:
+- Morning sessions: 9:00am - 11:30am (invited talks/work sessions)
+- Extended lunch break: 11:30am - 4:00pm (includes snow activities!)
+- Afternoon sessions: 4:00pm - 6:30pm (discussions/flash talks)
+- Evening: Social events
+
+
+===============================================================================
+DAY-BY-DAY PROGRAM
+===============================================================================
+
+MONDAY, JANUARY 26, 2026 - SETTING THE STAGE
+---------------------------------------------
+
+Morning:
+  9:00-9:15    Introduction
+  9:15-10:15   Invited talks: GW problem introduction
+               Speakers: Alberto Vecchio, Colm Talbot
+  10:15-10:30  Break
+  10:30-11:30  Invited talks: AI opportunity introduction
+               Speakers: Jakob Macke, Gilles Louppe
+
+Afternoon:
+  11:30-4:00   Lunch and Snow activities
+  4:00-4:30    Refreshments
+  4:30-5:30    Discussion: "How can ML help GWs?"
+               Moderators: Roberto Trotta, Uddipta Bhardwaj
+  5:30-6:30    Participant introductions
+
+Evening:
+  6:30         Welcome drinks
+
+
+TUESDAY, JANUARY 27, 2026 - APPLICATIONS
+-----------------------------------------
+
+Morning:
+  9:00-10:00   Invited talks
+               Speakers: James Alvey, Annalena Kofler
+  10:00-10:30  Break
+  10:30-11:30  Invited talks
+               Speakers: Michael Williams, Matthew Mould
+
+Afternoon:
+  11:30-4:00   Lunch and Snow activities
+  4:00-4:30    Refreshments
+  4:30-5:30    Discussion: "What's missing in GW PE? 
+               What astro predictions can we test?"
+               Moderators: Aleksandra Olejak, Rodrigo Tenorio
+  5:30-6:30    Flash talks (~5 min + 1 min Q&A)
+               Speakers: Stegmann, Tenorio, Rasamoela, Green, 
+                        Crisostomi, Wang, Scialpi
+
+
+WEDNESDAY, JANUARY 28, 2026 - FUTURE
+-------------------------------------
+
+Morning:
+  9:00-10:00   Invited talks
+               - Irene Ferranti: Pulsar Timing Arrays (PTA)
+               - Natalia Korsakova: Global fit
+  10:00-10:30  Break
+  10:30-11:30  Invited talks
+               - Philippa Cole: EMRIs (Extreme Mass Ratio Inspirals)
+               - Thea Aarrestad: What we can learn from HEP
+
+Afternoon:
+  11:30-4:00   Lunch and Snow activities
+  4:00-4:30    Refreshments
+  4:30-5:30    Discussion: "From prototype to deployment"
+               Moderators: Michael Pürrer, Jean-Baptiste Bayle
+  5:30-6:30    Flash talks (~5 min + 1 min Q&A)
+               Speakers: McLeod, Giarda, Lexmond, Ng, Ezquiaga, 
+                        Gerosa, Dooney, Badaracco, Delmond, Srinivasan
+
+Evening:
+  6:30         Bonfire drinks
+
+
+THURSDAY, JANUARY 29, 2026 - WORKING DAY
+-----------------------------------------
+
+Morning:
+  9:00-10:00   Working on small projects in groups
+  10:00-10:30  Break
+  10:30-11:30  Working on small projects in groups
+
+Afternoon:
+  11:30-4:00   Lunch and Snow activities
+  4:00-4:30    Refreshments
+  4:30-5:30    Working on small projects in groups
+  5:30-6:30    Flash talks (~5 min + 1 min Q&A)
+               Speakers: Negri, Carbone, De Santi, Servignat, 
+                        Roussopoulos, Muccillo, Fabbri, Santoliquido, 
+                        Wouters, Al-Shammari
+
+Evening:
+               Conference dinner at main hotel (Bad Moos)
+
+
+FRIDAY, JANUARY 30, 2026 - CONCLUSIONS
+---------------------------------------
+
+Morning:
+  9:00-10:00   Presentations by working groups
+  10:00-10:30  Break
+  10:30-11:30  Conclusions by organizers
+
+
+===============================================================================
+KEY THEMES AND TOPICS
+===============================================================================
+
+1. GRAVITATIONAL WAVE FUNDAMENTALS
+   - Introduction to GW problems and challenges
+   - Parameter estimation (PE) in GW analysis
+   - Current limitations and open questions
+
+2. MACHINE LEARNING OPPORTUNITIES
+   - AI/ML techniques applicable to GW science
+   - Success stories from other fields (High Energy Physics)
+   - From research prototypes to operational deployment
+
+3. SPECIFIC APPLICATIONS
+   - Pulsar Timing Arrays (PTA)
+   - Extreme Mass Ratio Inspirals (EMRIs)
+   - Global fitting techniques
+   - Astrophysical predictions and testing
+
+4. COLLABORATIVE WORK
+   - Small group projects
+   - Cross-disciplinary collaboration
+   - Practical implementation challenges
+
+
+===============================================================================
+CONFERENCE FORMAT
+===============================================================================
+
+The conference combines several formats:
+
+1. INVITED TALKS (45-60 min)
+   Expert presentations covering fundamental concepts and cutting-edge research
+
+2. DISCUSSION SESSIONS (60 min)
+   Moderated discussions on key questions facing the field
+
+3. FLASH TALKS (5 min + 1 min Q&A)
+   Quick presentations by participants showcasing their work
+
+4. WORKING GROUPS (60 min sessions)
+   Hands-on collaborative project work on Thursday
+
+5. SOCIAL ACTIVITIES
+   - Extended lunch breaks with snow activities
+   - Welcome drinks (Monday)
+   - Bonfire drinks (Wednesday)
+   - Conference dinner (Thursday)
+
+
+===============================================================================
+NOTABLE FEATURES
+===============================================================================
+
+- Strong emphasis on interdisciplinary collaboration (GW + AI/ML)
+- Unique format combining rigorous science with recreation (snow activities)
+- Hands-on working day for collaborative projects
+- Multiple opportunities for junior researchers (flash talks)
+- Focus on practical implementation ("prototype to deployment")
+
+
+===============================================================================
+PARTICIPANT INFORMATION
+===============================================================================
+
+Flash Talk Participants (30+ speakers across 3 days):
+Day 2 (Tue): Stegmann, Tenorio, Rasamoela, Green, Crisostomi, Wang, Scialpi
+Day 3 (Wed): McLeod, Giarda, Lexmond, Ng, Ezquiaga, Gerosa, Dooney, 
+             Badaracco, Delmond, Srinivasan
+Day 4 (Thu): Negri, Carbone, De Santi, Servignat, Roussopoulos, Muccillo, 
+             Fabbri, Santoliquido, Wouters, Al-Shammari
+
+Invited Speakers:
+- Alberto Vecchio, Colm Talbot (GW fundamentals)
+- Jakob Macke, Gilles Louppe (AI/ML)
+- James Alvey, Annalena Kofler (Applications)
+- Michael Williams, Matthew Mould (Applications)
+- Irene Ferranti (PTA), Natalia Korsakova (Global fit)
+- Philippa Cole (EMRIs), Thea Aarrestad (HEP lessons)
+
+Discussion Moderators:
+- Roberto Trotta, Uddipta Bhardwaj
+- Aleksandra Olejak, Rodrigo Tenorio
+- Michael Pürrer, Jean-Baptiste Bayle
+
+
+===============================================================================
+ADDITIONAL RESOURCES
+===============================================================================
+
+For more information, visit:
+- Home: https://sites.google.com/unimib.it/gwfreeride/home
+- Program: https://sites.google.com/unimib.it/gwfreeride/program
+- Participants: https://sites.google.com/unimib.it/gwfreeride/participants
+- Logistics: https://sites.google.com/unimib.it/gwfreeride/logistics
+- Registration: https://sites.google.com/unimib.it/gwfreeride/registration
+
+
+===============================================================================
+NOTES
+===============================================================================
+
+- The conference cleverly integrates winter sports with scientific collaboration
+- Daily 4.5-hour lunch breaks accommodate alpine activities
+- The working day (Thursday) allows for hands-on project development
+- Conference dinner provides informal networking opportunity
+- Format encourages both established and emerging researchers to contribute
+
+
+Generated: January 29, 2026
