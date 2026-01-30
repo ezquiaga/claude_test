@@ -327,18 +327,19 @@
         .finding-item::before {
             content: '0' counter(finding);
             position: absolute;
-            top: -10px;
+            top: 10px;
             right: 20px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 900;
-            color: rgba(0, 245, 255, 0.1);
+            color: rgba(0, 245, 255, 0.08);
             z-index: 0;
+            pointer-events: none;
         }
 
         .finding-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .finding-title {
@@ -558,11 +559,26 @@
             }
 
             h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                letter-spacing: 0.15em;
             }
 
             .timeline {
                 padding-left: 40px;
+            }
+
+            .finding-item::before {
+                font-size: 2rem;
+                top: 5px;
+                right: 10px;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
             }
         }
 
@@ -870,15 +886,7 @@
 
         document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.glass-card');
-            parallaxElements.forEach((el, index) => {
-                const speed = 0.05 * (index % 3 + 1);
-                el.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
+        // Removed parallax that was causing overlap issues
     </script>
 </body>
 </html>
