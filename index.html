@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GW FreeRide 2026 | AI × Gravitational Waves</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary: #00f5ff;
+            --secondary: #ff00ff;
+            --accent: #ffff00;
+            --bg-main: #000000;
+            --bg-card: rgba(10, 10, 30, 0.6);
+            --text: #ffffff;
+            --text-dim: #a0a0ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-main);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Holographic effect */
+        .holo {
+            position: relative;
+        }
+
+        .holo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 30%,
+                rgba(0, 245, 255, 0.1) 50%,
+                transparent 70%);
+            animation: holoScan 3s linear infinite;
+        }
+
+        @keyframes holoScan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Futuristic Header */
+        header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            position: relative;
+        }
+
+        .title-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            animation: glitch 5s infinite;
+            text-shadow: 
+                0 0 30px rgba(0, 245, 255, 0.5),
+                0 0 60px rgba(255, 0, 255, 0.3);
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% {
+                transform: translateX(0);
+                filter: blur(0);
+            }
+            92% {
+                transform: translateX(-2px);
+                filter: blur(1px);
+            }
+            94% {
+                transform: translateX(2px);
+                filter: blur(0);
+            }
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-top: 20px;
+            color: var(--text-dim);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .meta-item {
+            padding: 15px 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            border-radius: 0;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meta-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.3), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(10, 10, 30, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 
+                0 20px 60px rgba(0, 245, 255, 0.3),
+                inset 0 0 30px rgba(0, 245, 255, 0.1);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 50px 30px;
+            position: relative;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+
+        .stat-number::after {
+            content: attr(data-value);
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            z-index: -1;
+            color: rgba(0, 245, 255, 0.3);
+            filter: blur(8px);
+        }
+
+        .stat-label {
+            margin-top: 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+        }
+
+        /* Section Headers */
+        .section {
+            margin: 120px 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        /* Findings Grid */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .finding-item {
+            position: relative;
+            counter-increment: finding;
+        }
+
+        .finding-item::before {
+            content: '0' counter(finding);
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(0, 245, 255, 0.1);
+            z-index: 0;
+        }
+
+        .finding-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .finding-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .finding-desc {
+            color: var(--text-dim);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .finding-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s;
+            clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+        }
+
+        .finding-link:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 60px;
+            counter-reset: day;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+            counter-increment: day;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -52px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 3px solid #000;
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .day-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .timeline-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .timeline-speakers {
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Themes */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .theme-box {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .theme-icon {
+            font-size: 4rem;
+            filter: drop-shadow(0 0 20px var(--primary));
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: float-icon 3s ease-in-out infinite;
+        }
+
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .theme-box:hover .theme-icon {
+            filter: drop-shadow(0 0 40px var(--primary));
+            transform: scale(1.2);
+        }
+
+        .theme-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .theme-text {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-item {
+            padding: 20px 25px;
+            background: rgba(0, 245, 255, 0.05);
+            border-left: 3px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            background: rgba(0, 245, 255, 0.1);
+            border-left-width: 6px;
+            transform: translateX(10px);
+        }
+
+        .resource-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .resource-item a:hover {
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        .resource-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 120px;
+            border-top: 1px solid rgba(0, 245, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        footer p {
+            color: var(--text-dim);
+            margin: 10px 0;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            z-index: 1000;
+            transform-origin: left;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .findings-grid,
+            .themes-grid,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .timeline {
+                padding-left: 40px;
+            }
+        }
+
+        /* Loading animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator" id="scrollProgress"></div>
+    <div class="grid-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header>
+            <div class="title-wrapper holo">
+                <h1>GW FREERIDE 2026</h1>
+            </div>
+            <p class="subtitle">AI × GRAVITATIONAL WAVES</p>
+            <div class="meta-info">
+                <div class="meta-item">📍 SEXTEN, ITALY</div>
+                <div class="meta-item">📅 JAN 26-30, 2026</div>
+                <div class="meta-item">🏔️ DOLOMITES ALPS</div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-box glass-card fade-in-up">
+                <div class="stat-number" data-value="5">5</div>
+                <div class="stat-label">Days of Innovation</div>
+            </div>
+            <div class="stat-box glass-card fade-in-up">
+                <div class="stat-number" data-value="15+">15+</div>
+                <div class="stat-label">Invited Speakers</div>
+            </div>
+            <div class="stat-box glass-card fade-in-up">
+                <div class="stat-number" data-value="27">27</div>
+                <div class="stat-label">Flash Talks</div>
+            </div>
+            <div class="stat-box glass-card fade-in-up">
+                <div class="stat-number" data-value="17">17</div>
+                <div class="stat-label">Presentations</div>
+            </div>
+        </div>
+
+        <section class="section fade-in-up">
+            <h2 class="section-title">TOP 10 BREAKTHROUGHS</h2>
+            <div class="findings-grid" style="counter-reset: finding;">
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">LISA Global Fit</h3>
+                        <p class="finding-desc">Disentangling thousands of overlapping GW sources in non-stationary noise. Traditional methods won't scale—ML required from day one.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">Triple Systems</h3>
+                        <p class="finding-desc">Strong evidence that many BH mergers originate from triple systems. Identified through perpendicular spin orientations in GWTC-4.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">Exceptional Events</h3>
+                        <p class="finding-desc">"Exceptional" events may reflect measurement errors rather than physics. GW231123 challenges our interpretation.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">Neural Posterior 2.0</h3>
+                        <p class="finding-desc">Transformers processing time-frequency data for 3G detectors. Scaling to 15+ dimensions for Einstein Telescope.</p>
+                        <a href="https://github.com/sbi-dev/sbi" target="_blank" class="finding-link">→ SBI TOOLKIT</a>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">SBI for EMRIs</h3>
+                        <p class="finding-desc">Years-long signals with millions of cycles require simulation-based inference. Likelihood evaluation prohibitive.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">HEP Lessons</h3>
+                        <p class="finding-desc">LHC: 40,000 exabytes/year, stores only fraction. Solution: on-detector ML. GW astronomy faces same challenge.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">Neural Priors</h3>
+                        <p class="finding-desc">Incorporating EOS physics and pulsar observations dramatically improves neutron star inference.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">Deployment Gap</h3>
+                        <p class="finding-desc">Biggest blocker: prototype to production. Requires trust, robustness, interpretability.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">MANGO/GWINESS</h3>
+                        <p class="finding-desc">Music separation techniques for LISA's overlapping signals. Blind source separation inspired by audio.</p>
+                        <a href="https://github.com/rasamoelina/MANGO" target="_blank" class="finding-link">→ GITHUB</a>
+                    </div>
+                </div>
+
+                <div class="finding-item glass-card">
+                    <div class="finding-content">
+                        <h3 class="finding-title">LLM Algorithms</h3>
+                        <p class="finding-desc">LLMs with Monte Carlo Tree Search to auto-discover GW analysis algorithms. AI designing AI.</p>
+                        <a href="https://arxiv.org/abs/2508.03661" target="_blank" class="finding-link">→ ARXIV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in-up">
+            <h2 class="section-title">CONFERENCE TIMELINE</h2>
+            <div class="timeline">
+                <div class="timeline-item glass-card">
+                    <div class="day-label">Day 01</div>
+                    <h3 class="timeline-title">Setting the Stage</h3>
+                    <p class="timeline-speakers">Alberto Vecchio, Colm Talbot | Jakob Macke, Gilles Louppe</p>
+                    <p class="finding-desc">GW challenges and AI opportunities. How can ML help gravitational waves?</p>
+                </div>
+
+                <div class="timeline-item glass-card">
+                    <div class="day-label">Day 02</div>
+                    <h3 class="timeline-title">Applications</h3>
+                    <p class="timeline-speakers">James Alvey, Annalena Kofler | Michael Williams, Matthew Mould</p>
+                    <p class="finding-desc">Current ML applications. Neural posterior estimation, ML-enhanced sampling, SBI advances.</p>
+                </div>
+
+                <div class="timeline-item glass-card">
+                    <div class="day-label">Day 03</div>
+                    <h3 class="timeline-title">Future</h3>
+                    <p class="timeline-speakers">Irene Ferranti, Natalia Korsakova | Philippa Cole, Thea Aarrestad</p>
+                    <p class="finding-desc">PTAs, global fit, EMRIs, HEP lessons. From prototype to deployment.</p>
+                </div>
+
+                <div class="timeline-item glass-card">
+                    <div class="day-label">Day 04</div>
+                    <h3 class="timeline-title">Working Day</h3>
+                    <p class="timeline-speakers">Collaborative Projects</p>
+                    <p class="finding-desc">Small group projects. Flash talks: lensing, exceptional events, time-frequency methods.</p>
+                </div>
+
+                <div class="timeline-item glass-card">
+                    <div class="day-label">Day 05</div>
+                    <h3 class="timeline-title">Conclusions</h3>
+                    <p class="timeline-speakers">Working Group Presentations</p>
+                    <p class="finding-desc">Synthesis and roadmap for responsible ML deployment in GW astronomy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in-up">
+            <h2 class="section-title">RESEARCH THEMES</h2>
+            <div class="themes-grid">
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">🌊</div>
+                    <h3 class="theme-title">Simulation-Based Inference</h3>
+                    <p class="theme-text">NPE, NLE, NRE methods mainstream. Amortized inference for rapid analysis.</p>
+                </div>
+
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">🎯</div>
+                    <h3 class="theme-title">Time-Frequency</h3>
+                    <p class="theme-text">Essential for long overlapping signals. Sparse TF representations.</p>
+                </div>
+
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">🔬</div>
+                    <h3 class="theme-title">Uncertainty Quantification</h3>
+                    <p class="theme-text">Calibrated uncertainties for discovery. Ensemble methods and neural priors.</p>
+                </div>
+
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">⚡</div>
+                    <h3 class="theme-title">Real-Time Processing</h3>
+                    <p class="theme-text">On-detector ML for multimessenger alerts. Microsecond decisions.</p>
+                </div>
+
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">🛰️</div>
+                    <h3 class="theme-title">Next-Gen Detectors</h3>
+                    <p class="theme-text">ET, CE, LISA. Millions of events, 100+ PB/year.</p>
+                </div>
+
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">🎼</div>
+                    <h3 class="theme-title">Source Separation</h3>
+                    <p class="theme-text">Music-inspired blind separation for LISA global fit.</p>
+                </div>
+
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">🧠</div>
+                    <h3 class="theme-title">Transformers</h3>
+                    <p class="theme-text">Self-attention for complex waveforms. High-dimensional spaces.</p>
+                </div>
+
+                <div class="theme-box glass-card">
+                    <div class="theme-icon">🔐</div>
+                    <h3 class="theme-title">Trust & Validation</h3>
+                    <p class="theme-text">Interpretable ML for science. Rigorous validation protocols.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in-up">
+            <h2 class="section-title">OPEN SOURCE TOOLS</h2>
+            <div class="resources-grid">
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/blackjax-devs/blackjax" target="_blank">BLACKJAX</a>
+                    <p class="resource-desc">Bayesian inference in JAX</p>
+                </div>
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/sbi-dev/sbi" target="_blank">SBI</a>
+                    <p class="resource-desc">Simulation-based inference toolkit</p>
+                </div>
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/mj-will/nessai" target="_blank">NESSAI</a>
+                    <p class="resource-desc">Nested sampling with AI</p>
+                </div>
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/lscsoft/bilby" target="_blank">BILBY</a>
+                    <p class="resource-desc">Bayesian inference library</p>
+                </div>
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/ezquiaga/spectral_sirens" target="_blank">SPECTRAL_SIRENS</a>
+                    <p class="resource-desc">GW cosmology toolkit</p>
+                </div>
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/stephengreen/lfi-gw" target="_blank">LFI-GW</a>
+                    <p class="resource-desc">Likelihood-free inference for GWs</p>
+                </div>
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/ML4GW" target="_blank">ML4GW</a>
+                    <p class="resource-desc">ML tools for GW astronomy</p>
+                </div>
+                <div class="resource-item glass-card">
+                    <a href="https://github.com/kazewong/flowMC" target="_blank">FLOWMC</a>
+                    <p class="resource-desc">Normalizing flow MCMC</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">GW FREERIDE 2026</p>
+            <p>WHERE GRAVITATIONAL WAVES MEET ARTIFICIAL INTELLIGENCE</p>
+            <p style="margin-top: 20px; opacity: 0.5;">SEXTEN CENTER FOR ASTROPHYSICS | JAN 26-30, 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.glass-card');
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.05 * (index % 3 + 1);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
